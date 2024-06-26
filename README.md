@@ -1,4 +1,4 @@
-# HOLAX 官网重构版--astro
+# 某公司官网 ASTRO 重构版
 
 运行要求
 `node >= 18`
