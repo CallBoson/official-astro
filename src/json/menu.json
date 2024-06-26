@@ -1,0 +1,76 @@
+{
+  "products": {
+    "title": "全部产品"
+  },
+  "about": {
+    "title": "关于HOLAX",
+    "items": {
+      "introduce": {
+        "title": "了解HOLAX",
+        "url": "/introduce"
+      },
+      "join": {
+        "title": "加入HOLAX",
+        "url": "/join"
+      }
+    }
+  },
+  "contact": {
+    "title": "联系HOLAX",
+    "items": {
+      "officialAccount": {
+        "title": "HOLAX公众号",
+        "sub": "获取每日最新优惠",
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-1.png"
+      },
+      "consult": {
+        "title": "1对1咨询",
+        "sub": "可领50元现金券",
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-3.png"
+      },
+      "miniprogram": {
+        "title": "HOLAX小程序",
+        "sub": "一键解锁商城福利",
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-4.png"
+      },
+      "calls": {
+        "title": "热线电话：4000-688-666",
+        "sub": "周一至周日：9:00-21:00（北京时间）",
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-5.png"
+      }
+    }
+  },
+  "cooperation": {
+    "title": "招商合作",
+    "items": {
+      "factory": {
+        "title": "厂家合作",
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/cooperation-code-1.png"
+      },
+      "agency": {
+        "title": "代理合作",
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/cooperation-code-2.png"
+      },
+      "integritySupervision": {
+        "title": "廉洁监督",
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/cooperation-code-3.jpg"
+      }
+    }
+  },
+  "support": {
+    "title": "支持",
+    "items": {
+      "privacy": {
+        "title": "隐私与法律",
+        "url": "/privacy"
+      }
+    }
+  },
+  "explore": {
+    "title": "立即探索",
+    "item": {
+      "title": "领商城福利",
+      "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-4.png"
+    }
+  }
+}

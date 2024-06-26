@@ -1,0 +1,103 @@
+---
+import { Image } from "astro:assets";
+import menu from "../../../json/menu.json";
+import products from "../../../json/products.json";
+import recordInfo from "../../../json/recordInfo.json";
+import FooterItem from "./FooterItem.astro";
+import MaskButton from "../../MaskButton.astro";
+import logo from "../../../images/footer/logo-mobile.webp";
+
+const footerSubItemClasses = "text-white text-sm py-5 block custom-width";
+---
+
+<footer class="bg-[rgb(2,0,36)] pb-5">
+  <!-- Menu -->
+  <div>
+    <FooterItem title="产品分类">
+      {
+        products.map((product) => (
+          <a class={footerSubItemClasses} href={product.url}>
+            {product.name}
+          </a>
+        ))
+      }
+    </FooterItem>
+    <FooterItem title={menu.about.title}>
+      {
+        Object.entries(menu.about.items).map(([k, v]) => (
+          <a href={v.url} class={footerSubItemClasses}>
+            {v.title}
+          </a>
+        ))
+      }
+    </FooterItem>
+    <FooterItem title={menu.contact.title}>
+      {
+        ["officialAccount", "consult", "miniprogram"].map((key) => (
+          <MaskButton>
+            <span class={footerSubItemClasses}>
+              {menu.contact.items[key].title}
+            </span>
+            <div slot="content" class="flex flex-col items-center">
+              <Image
+                src={menu.contact.items[key].img}
+                alt={menu.contact.items[key].sub}
+                width={130}
+                height={130}
+                loading="lazy"
+              />
+            </div>
+          </MaskButton>
+        ))
+      }
+
+      <!-- 热线电话 -->
+      <a href="tel:4000-688-666" class={footerSubItemClasses}>热线电话</a>
+    </FooterItem>
+    <FooterItem title={menu.cooperation.title}>
+      {
+        Object.entries(menu.cooperation.items).map(([k, v]) => (
+          <MaskButton>
+            <span class={footerSubItemClasses}>{v.title}</span>
+            <div slot="content" class="flex flex-col items-center">
+              <Image
+                src={v.img}
+                alt={v.title}
+                width={130}
+                height={130}
+                loading="lazy"
+              />
+            </div>
+          </MaskButton>
+        ))
+      }
+    </FooterItem>
+    <FooterItem title={menu.support.title}>
+      {
+        Object.entries(menu.support.items).map(([k, v]) => (
+          <a href={v.url} class={footerSubItemClasses}>
+            {v.title}
+          </a>
+        ))
+      }
+    </FooterItem>
+  </div>
+
+  <!-- Copyright -->
+  <div class="custom-width flex flex-col items-center mt-10">
+    <Image src={logo} alt="Footer logo" width={120} />
+
+    <span class="text-[#ffffff80] text-xs mt-3 text-center"
+      >{recordInfo.copyright}</span
+    >
+    <div class="text-[#ffffff80] text-xs mt-2 flex items-center">
+      <a href={recordInfo.icp.url}>{recordInfo.icp.text}</a>
+      <span class="mx-1">|</span>
+      <a href="tel:4000-688-666">{recordInfo.calls}</a>
+    </div>
+    <div class="text-[#ffffff80] text-xs mt-2 flex items-center">
+      <Image src={recordInfo.is.img} alt="备案logo" width={15} height={15} />
+      <a class="ml-2" href={recordInfo.is.url}>{recordInfo.is.text}</a>
+    </div>
+  </div>
+</footer>

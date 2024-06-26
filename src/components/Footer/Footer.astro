@@ -1,0 +1,141 @@
+---
+import { Image } from "astro:assets";
+import recordInfo from "../../json/recordInfo.json";
+import logo from "../../images/nav/logo.webp";
+import menu from "../../json/menu.json";
+import products from "../../json/products.json";
+import HoverButton from "../HoverButton.astro";
+
+function createFooterMenu() {
+  const newMenu = JSON.parse(JSON.stringify(menu));
+
+  // 联系 HOLAX 修改热线电话标题
+  newMenu.contact.items.calls.title = "热线电话";
+
+  return newMenu;
+}
+
+const footerMenu = createFooterMenu();
+---
+
+<footer class="bg-[#020024]">
+  <div class="custom-width">
+    <div class="pt-20 pb-28 flex justify-between text-base">
+      <Image
+        src={logo}
+        alt="Footer logo"
+        width={114}
+        loading="lazy"
+        class="self-start"
+      />
+      <!-- 全部产品 -->
+      <div class="flex flex-col gap-6">
+        <span class="text-white mb-4">{footerMenu.products.title}</span>
+        {
+          products.map((p) => (
+            <a href={p.url} class="text-[hsla(0,0%,100%,.5)] hover:text-white">
+              {p.name}
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- 关于HOLAX -->
+      <div class="flex flex-col gap-6">
+        <span class="text-white mb-4">{footerMenu.about.title}</span>
+        {
+          Object.entries(footerMenu.about.items).map(([k, v]) => (
+            <a href={v.url} class="text-[hsla(0,0%,100%,.5)] hover:text-white">
+              {v.title}
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- 联系HOLAX -->
+      <div class="flex flex-col gap-6">
+        <span class="text-white mb-4">{footerMenu.contact.title}</span>
+        {
+          Object.entries(footerMenu.contact.items).map(([k, v]) => (
+            <HoverButton hideOnButtonLeave="true">
+              <a
+                href="javascript:;"
+                slot="button-content"
+                class="text-[hsla(0,0%,100%,.5)] hover:text-white"
+              >
+                {v.title}
+              </a>
+              <div slot="hover-content">
+                <Image
+                  src={v.img}
+                  alt={v.title}
+                  width={130}
+                  inferSize
+                  loading="lazy"
+                />
+              </div>
+            </HoverButton>
+          ))
+        }
+      </div>
+
+      <!-- 招商合作 -->
+      <div class="flex flex-col gap-6">
+        <span class="text-white mb-4">{footerMenu.cooperation.title}</span>
+        {
+          Object.entries(footerMenu.cooperation.items).map(([k, v]) => (
+            <HoverButton hideOnButtonLeave="true">
+              <a
+                href="javascript:;"
+                slot="button-content"
+                class="text-[hsla(0,0%,100%,.5)] hover:text-white"
+              >
+                {v.title}
+              </a>
+              <div slot="hover-content">
+                <Image
+                  src={v.img}
+                  alt={v.title}
+                  width={130}
+                  inferSize
+                  loading="lazy"
+                />
+              </div>
+            </HoverButton>
+          ))
+        }
+      </div>
+
+      <!-- 支持 -->
+      <div class="flex flex-col gap-6">
+        <span class="text-white mb-4">{footerMenu.support.title}</span>
+        {
+          Object.entries(footerMenu.support.items).map(([k, v]) => (
+            <a href={v.url} class="text-[hsla(0,0%,100%,.5)] hover:text-white">
+              {v.title}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- copyright -->
+    <div
+      class="py-6 border-t border-[hsla(0,0%,100%,.2)] flex items-center justify-center flex-wrap gap-x-10 text-[hsla(0,0%,100%,.5)] text-sm"
+    >
+      <span>{recordInfo.copyright}</span>
+      <a href={recordInfo.icp.url} target="_blank">{recordInfo.icp.text}</a>
+      <a class="flex items-center" href={recordInfo.is.url} target="_blank">
+        <Image
+          src={recordInfo.is.img}
+          alt={recordInfo.is.text}
+          width={20}
+          height={20}
+          class="mr-1"
+        />
+        <span>{recordInfo.is.text}</span>
+      </a>
+      <span>{recordInfo.calls}</span>
+    </div>
+  </div>
+</footer>

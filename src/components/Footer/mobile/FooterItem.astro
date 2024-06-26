@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import { generateId } from "../../../utils";
+const { title } = Astro.props;
+
+const id = generateId();
+---
+
+<div class="group">
+  <input
+    class="hidden peer"
+    type="checkbox"
+    id={`dropdown-toggle-footer-${id}`}
+  />
+
+  <label
+    for={`dropdown-toggle-footer-${id}`}
+    class="block text-white text-sm py-5 border-b border-b-[rgba(255,255,255,.2)]"
+  >
+    <div class="custom-width flex items-center justify-between">
+      <span>{title}</span>
+      <Image
+        src="https://build-1305866201.file.myqcloud.com/img/official/arrow-down.png"
+        class="group-has-[:checked]:-rotate-90 transition-all duration-700"
+        alt="Just an arrow"
+        width={15}
+        height={15}
+      />
+    </div>
+  </label>
+
+  <div
+    class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] overflow-hidden transition-all duration-700"
+  >
+    <div
+      class="min-h-0 flex flex-col overflow-hidden bg-[rgba(255,255,255,.1)]"
+    >
+      <slot />
+    </div>
+  </div>
+</div>

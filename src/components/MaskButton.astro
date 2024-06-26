@@ -1,0 +1,28 @@
+---
+import { generateId } from "../utils";
+
+interface Props {
+  buttonClass?: string;
+}
+
+const { buttonClass = "" } = Astro.props;
+
+const maskId = `mask-toggle-${generateId()}`;
+---
+
+<div class={buttonClass}>
+  <input class="hidden peer/mask" type="checkbox" id={maskId} />
+
+  <label for={maskId}>
+    <slot />
+  </label>
+
+  <label
+    for={maskId}
+    class="peer-checked/mask:flex hidden fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,.2)] z-50 justify-center items-center"
+  >
+    <div class="p-5 bg-white">
+      <slot name="content" />
+    </div>
+  </label>
+</div>

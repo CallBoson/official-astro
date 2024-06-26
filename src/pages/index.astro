@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "../layouts/Main.astro";
+import Responsive from "../components/Responsive.astro";
+import ContentThird from "../components/pages-content/index/Third.astro";
+import ContentThirdM from "../components/pages-content/index/ThirdM.astro";
+---
+
+<MainLayout>
+  <main>
+    <!-- 首屏图像 -->
+    <Image
+      src="https://build-1305866201.file.myqcloud.com/img/official/hairDryerPro/shouping.png"
+      alt="Hero background"
+      class="h-screen object-cover"
+      inferSize
+    />
+
+    <!-- 第二屏 -->
+    <div class="relative">
+      <Image
+        src="https://build-1305866201.file.myqcloud.com/img/official/img-index-2.jpg"
+        alt="Second background"
+        class="h-screen object-cover"
+        inferSize={true}
+      />
+      <div
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-white text-2xl sm:text-3xl"
+      >
+        <Image
+          src="https://build-1305866201.file.myqcloud.com/img/official/icon-index-holax.png"
+          class="sm:w-[60px] w-[33.5px]"
+          alt="Second background logo"
+          loading="lazy"
+          width={60}
+          height={60}
+        />
+        <span class="mt-5 mb-4 break-keep">一个以用户为中心的</span>
+        <span class="mb-8">创新平台</span>
+        <button
+          class="text-base border border-white px-6 py-2 hover:text-black hover:bg-white transition-all duration-300"
+        >
+          <a href="/introduce">了解HOLAX</a>
+        </button>
+      </div>
+    </div>
+
+    <!-- 第三屏 -->
+    <Responsive>
+      <ContentThird slot="large" />
+      <ContentThirdM slot="small" />
+    </Responsive>
+  </main>
+</MainLayout>

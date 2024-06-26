@@ -1,0 +1,121 @@
+---
+interface Props {
+  hideOnButtonLeave?: "true" | "false";
+}
+const hideOnButtonLeave = Astro.props.hideOnButtonLeave ?? "false";
+---
+
+<astro-greet data-hideonbuttonleave={hideOnButtonLeave}>
+  <div data-button-content aria-describedby="tooltip">
+    <slot name="button-content" />
+  </div>
+
+  <div
+    data-hover-content
+    role="tooltip"
+    class="transition duration-500 hidden rounded bg-white p-4 shadow-lg"
+  >
+    <slot name="hover-content" />
+  </div>
+</astro-greet>
+
+<script>
+  import { createPopper } from "@popperjs/core";
+
+  const HIDE_DELAY = 100;
+  const VISIBLE = "visible";
+  const HIDDEN = "hidden";
+
+  class AstroGreet extends HTMLElement {
+    hideOnButtonLeave;
+    isTooltipHovered;
+
+    constructor() {
+      super();
+      this.hideOnButtonLeave = this.dataset.hideonbuttonleave === "true";
+      this.isTooltipHovered = false;
+
+      this.init();
+    }
+
+    init() {
+      const buttons = this.querySelectorAll("[data-button-content]");
+      const tooltips = this.querySelectorAll("[data-hover-content]");
+
+      buttons.forEach((button, index) => {
+        const tooltip = tooltips[index];
+        this.setupPopper(button, tooltip);
+        this.setupEventListeners(button, tooltip);
+      });
+    }
+
+    setupPopper(button, tooltip) {
+      createPopper(button, tooltip, {
+        placement: "top",
+        modifiers: [
+          {
+            name: "offset",
+            options: {
+              offset: [0, 5],
+            },
+          },
+        ],
+      });
+
+      tooltip.style.visibility = HIDDEN;
+      tooltip.style.display = "block"; // 前面隐藏了，防止布局偏移，现在恢复
+      tooltip.style.opacity = "0"; // 初始化为透明
+    }
+
+    setupEventListeners(button, tooltip) {
+      button.addEventListener("mouseenter", () => this.showTooltip(tooltip));
+      button.addEventListener("mouseleave", () =>
+        this.handleButtonLeave(button, tooltip)
+      );
+
+      if (!this.hideOnButtonLeave) {
+        tooltip.addEventListener("mouseenter", () => this.handleTooltipEnter());
+        tooltip.addEventListener("mouseleave", () =>
+          this.handleTooltipLeave(button, tooltip)
+        );
+      }
+    }
+
+    showTooltip(tooltip) {
+      tooltip.style.visibility = VISIBLE;
+      tooltip.style.opacity = "1";
+    }
+
+    hideTooltip(tooltip) {
+      tooltip.style.visibility = HIDDEN;
+      tooltip.style.opacity = "0";
+    }
+
+    handleButtonLeave(button, tooltip) {
+      if (this.hideOnButtonLeave) {
+        this.hideTooltip(tooltip);
+      } else {
+        setTimeout(() => {
+          if (!this.isTooltipHovered) {
+            this.hideTooltip(tooltip);
+          }
+        }, HIDE_DELAY);
+      }
+    }
+
+    handleTooltipEnter() {
+      this.isTooltipHovered = true;
+    }
+
+    handleTooltipLeave(button, tooltip) {
+      this.isTooltipHovered = false;
+      setTimeout(() => {
+        if (!button.matches(":hover")) {
+          this.hideTooltip(tooltip);
+        }
+      }, HIDE_DELAY);
+    }
+  }
+
+  customElements.define("astro-greet", AstroGreet);
+</script>

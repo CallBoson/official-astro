@@ -1,0 +1,28 @@
+---
+import Layout from "./Layout.astro";
+import Nav from "../components/Navbar/Nav.astro";
+import NavMobile from "../components/Navbar/mobile/Nav.astro";
+import Footer from "../components/Footer/Footer.astro";
+import FooterMobile from "../components/Footer/mobile/Footer.astro";
+import Responsive from "../components/Responsive.astro";
+
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <Responsive>
+    <Nav slot="large" />
+    <NavMobile slot="small" />
+  </Responsive>
+
+  <slot />
+
+  <Responsive>
+    <Footer slot="large" />
+    <FooterMobile slot="small" />
+  </Responsive>
+</Layout>

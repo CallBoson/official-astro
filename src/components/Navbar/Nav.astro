@@ -1,0 +1,135 @@
+---
+import { Image } from "astro:assets";
+import NavItem from "./NavItem.astro";
+import logo from "../../images/nav/logo-pc.webp";
+import logoActive from "../../images/nav/logo-active-pc.webp";
+import products from "../../json/products.json";
+import menu from "../../json/menu.json";
+---
+
+<nav
+  class="group hover:bg-white absolute top-0 w-full h-[70px] z-[99] transition-all duration-500 flex"
+>
+  <div class="custom-width flex items-center justify-between">
+    <!-- Logo 部分 -->
+    <div class="lg:w-[372px] w-[300px]">
+      <Image src={logo} alt="Navbar logo" class="group-hover:hidden w-full" />
+      <Image
+        src={logoActive}
+        alt="Navbar active logo"
+        class="group-hover:block w-full hidden"
+      />
+    </div>
+
+    <!-- 右边部分 -->
+    <div class="flex text-white group-hover:text-[#333] text-sm gap-9 h-full">
+      <NavItem title={menu.products.title} isFullWidth={true}>
+        <div class="bg-white border border-t border-[#e4e4e4] py-11">
+          <div class="flex justify-between gap-8 custom-width overflow-x-auto">
+            {
+              products.map((product) => (
+                <div class="flex flex-col flex-shrink-0">
+                  <span class="font-medium text-lg mb-2">{product.name}</span>
+                  <span class="text-xs mb-[18px] text-[#666]">
+                    {product.sub}
+                  </span>
+                  <div class="overflow-hidden cursor-pointer">
+                    <Image
+                      src={product.img}
+                      alt={product.name}
+                      width={168}
+                      height={168}
+                      class="hover:scale-[1.1] transition duration-500"
+                    />
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </NavItem>
+      <NavItem title={menu.about.title}>
+        <div
+          class="rounded bg-white p-4 w-[120px] flex flex-col gap-4 -translate-x-[20px] translate-y-3"
+        >
+          {
+            Object.keys(menu.about.items).map((key) => (
+              <a
+                href={menu.about.items[key].url}
+                class="cursor-pointer hover:text-primary text-center"
+              >
+                {menu.about.items[key].title}
+              </a>
+            ))
+          }
+        </div>
+      </NavItem>
+      <NavItem title={menu.contact.title} isFullWidth={true}
+        ><div class="bg-white border border-t border-[#e4e4e4] py-11">
+          <div class="flex justify-between custom-width">
+            {
+              Object.keys(menu.contact.items).map((key) => (
+                <div class="flex flex-col items-center">
+                  <Image
+                    src={menu.contact.items[key].img}
+                    alt={menu.contact.items[key].title}
+                    width={90}
+                    inferSize={true}
+                    class="hover:scale-[1.1] transition duration-500 mb-7"
+                  />
+                  <span class="text-lg mb-1">
+                    {menu.contact.items[key].title}
+                  </span>
+                  <span class="text-xs text-[#666]">
+                    {menu.contact.items[key].sub}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </NavItem>
+      <NavItem title={menu.cooperation.title}>
+        <div
+          class="rounded bg-white w-[338px] py-6 px-8 flex justify-between -translate-x-[130px] translate-y-3"
+        >
+          {
+            ["factory", "agency"].map((key) => (
+              <div class="flex flex-col items-center">
+                <Image
+                  src={menu.cooperation.items[key].img}
+                  alt={menu.cooperation.items[key].title}
+                  width={120}
+                  inferSize={true}
+                  class="hover:scale-[1.1] transition duration-500 mb-3"
+                />
+                <span>{menu.cooperation.items[key].title}</span>
+              </div>
+            ))
+          }
+        </div>
+      </NavItem>
+      <div class="relative group/item lg:flex hidden items-center">
+        <button class="bg-primary text-white text-lg w-[116px] h-[44px]"
+          >{menu.explore.title}</button
+        >
+        <div
+          class="cursor-default w-full absolute invisible opacity-0 group-hover/item:visible group-hover/item:opacity-100 transition-opacity duration-500 top-[70px] left-0"
+        >
+          <div
+            class="rounded bg-white py-6 w-[180px] flex flex-col items-center -translate-x-[28px] translate-y-3"
+          >
+            <Image
+              src={menu.explore.item.img}
+              alt={menu.explore.item.title}
+              width={114}
+              inferSize={true}
+              class="mb-3"
+            />
+            <span>{menu.explore.item.title}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

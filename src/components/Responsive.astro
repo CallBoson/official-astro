@@ -1,0 +1,37 @@
+---
+// 响应式组件
+interface Props {
+  point?: "sm" | "md" | "lg" | "xl";
+}
+
+const { point = "md" } = Astro.props;
+
+const classNames = {
+  sm: {
+    small: "block sm:hidden",
+    large: "hidden sm:block",
+  },
+  md: {
+    small: "block md:hidden",
+    large: "hidden md:block",
+  },
+  lg: {
+    small: "block lg:hidden",
+    large: "hidden lg:block",
+  },
+  xl: {
+    small: "block xl:hidden",
+    large: "hidden xl:block",
+  },
+};
+---
+
+<!-- 大屏幕显示 -->
+<div class={classNames[point].large}>
+  <slot name="large" />
+</div>
+
+<!-- 小屏幕显示 -->
+<div class={classNames[point].small}>
+  <slot name="small" />
+</div>

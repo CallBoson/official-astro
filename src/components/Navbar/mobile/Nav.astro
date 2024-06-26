@@ -1,0 +1,128 @@
+---
+import { Image } from "astro:assets";
+import toggleOpen from "../../../images/nav/icon-open-m.webp";
+import toggleClose from "../../../images/nav/icon-close-m.webp";
+import logo from "../../../images/nav/logo.webp";
+import menu from "../../../json/menu.json";
+import products from "../../../json/products.json";
+import MaskButton from "../../MaskButton.astro";
+
+const renderMenu = {
+  introduce: {
+    title: menu.about.items.introduce.title,
+    url: menu.about.items.introduce.url,
+  },
+  join: {
+    title: menu.about.items.join.title,
+    url: menu.about.items.join.url,
+  },
+  contact: {
+    title: menu.contact.title,
+    url: "/contact",
+  },
+  cooperate: {
+    title: menu.cooperation.title,
+    url: "/cooperate",
+  },
+};
+
+const menuItemClasses =
+  "text-white custom-width py-6 text-sm border-b border-b-[rgba(255,255,255,.2)]";
+---
+
+<nav class="absolute top-0 w-full h-[70px]">
+  <div
+    class="group custom-width absolute top-0 h-full flex items-center justify-between"
+  >
+    <input class="hidden peer" type="checkbox" id="dropdown-toggle-nav-menu" />
+    <label for="dropdown-toggle-nav-menu" class="z-10">
+      <img
+        src={toggleOpen.src}
+        alt="toggle icon"
+        width={20}
+        class="block group-has-[:checked]:hidden"
+      />
+
+      <img
+        src={toggleClose.src}
+        alt="toggle icon"
+        width={20}
+        class="hidden group-has-[:checked]:block"
+      />
+    </label>
+
+    <img src={logo.src} alt="logo" width={120} class="z-10" />
+
+    <MaskButton buttonClass="z-10">
+      <Image
+        src="https://build-1305866201.file.myqcloud.com/img/official/icon-shop.png"
+        alt="icon shop"
+        width={20}
+        inferSize
+      />
+
+      <div slot="content" class="flex flex-col items-center">
+        <Image
+          src="https://build-1305866201.file.myqcloud.com/img/official/contact-img-4.png"
+          alt="miniprogram code"
+          width={130}
+          height={130}
+          loading="lazy"
+        />
+
+        <span class="text-[13px] text-[#333] font-bold mt-2">领商城福利</span>
+      </div>
+    </MaskButton>
+
+    <!-- 下拉菜单 -->
+    <div
+      class:list={[
+        "absolute left-0 top-0 w-full bg-[rgba(2,0,36,.9)] z-0",
+        "grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] overflow-hidden transition-all duration-700",
+      ]}
+    >
+      <div class="min-h-0">
+        <div class="pt-[70px] flex flex-col">
+          <!-- 产品分类 -->
+          <input
+            class="hidden peer"
+            type="checkbox"
+            id="dropdown-toggle-nav-submenu"
+          />
+          <label for="dropdown-toggle-nav-submenu" class={menuItemClasses}>
+            产品分类
+          </label>
+
+          <!-- 全部产品 -->
+          <div
+            class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] overflow-hidden transition-all duration-700"
+          >
+            <div
+              class="min-h-0 flex flex-col overflow-hidden bg-[rgba(255,255,255,.1)]"
+            >
+              {
+                products.map((product) => (
+                  <a
+                    class="text-white custom-width py-4 text-sm"
+                    href={product.url}
+                  >
+                    {product.name}
+                  </a>
+                ))
+              }
+            </div>
+
+            <!-- 其它 -->
+            {
+              Object.entries(renderMenu).map(([k, v]) => (
+                <a class={menuItemClasses} href={v.url}>
+                  {v.title}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,51 @@
+---
+// 第三屏
+import { Image } from "astro:assets";
+import grayBg from "../../../images/index/gray-bg.jpg";
+---
+
+<div class="relative">
+  <!-- 灰色背景图片 -->
+  <Image
+    src={grayBg}
+    height={600}
+    class="mb-[180px] h-[600px]"
+    alt="gray holax background"
+  />
+  <div class="absolute top-1/2 -translate-y-1/2 w-full">
+    <div class="custom-width flex justify-between">
+      <!-- 左边 -->
+      <div class="flex flex-col">
+        <span
+          class="text-4xl after:block after:w-[50px] after:h-[2px] after:bg-primary after:my-7"
+          >关注HOLAX</span
+        >
+        <span class="text-[#666] text-lg leading-8">阅读有想法的优质内容</span>
+        <span class="text-[#666] text-lg leading-8">探索有品味的趣味活动</span>
+        <span class="text-[#666] text-lg leading-8">获取每日最新品牌资讯</span>
+      </div>
+
+      <!-- 右边 -->
+      <div class="flex flex-col items-center">
+        <Image
+          src="https://build-1305866201.file.myqcloud.com/img/official/contact-img-1.png"
+          alt="HOLAX公众号二维码"
+          inferSize={true}
+          width={110}
+        />
+        <span class="text-[17px] font-bold mt-3">立即扫码</span>
+        <span class="text-[17px]">更多优惠 尽在于此</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 大手机 -->
+  <div class="absolute top-[122px] left-1/2 -translate-x-1/2">
+    <Image
+      src="https://build-1305866201.file.myqcloud.com/img/official/contact-bg-phone.png"
+      alt="一个大手机图片"
+      inferSize={true}
+      width={322}
+    />
+  </div>
+</div>

@@ -1,0 +1,36 @@
+---
+// 第三屏 --mobile
+import { Image } from "astro:assets";
+import grayBg from "../../../images/index/gray-bg.jpg";
+---
+
+<div class="relative pb-[50px]">
+  <!-- 灰色背景图片 -->
+  <Image
+    src={grayBg}
+    height={450}
+    class="h-[450px] object-cover"
+    alt="gray holax background"
+  />
+
+  <div
+    class="absolute top-1/2 -translate-y-1/2 w-full flex flex-col items-center"
+  >
+    <span
+      class="text-2xl after:block after:w-[48px] after:h-[1px] after:bg-[#333] after:mt-4 mb-4 flex flex-col items-center"
+      >关注HOLAX</span
+    >
+    <span class="text-[#666] text-xs"
+      >阅读有想法的优质内容，探索有品味的趣味活动</span
+    >
+    <span class="text-[#666] text-xs">获取每日最新品牌资讯</span>
+
+    <Image
+      src="https://build-1305866201.file.myqcloud.com/img/official/contact-bg-phone-mobile.png"
+      inferSize
+      width={155}
+      class="relative top-10"
+      alt="一个大手机图片"
+    />
+  </div>
+</div>
