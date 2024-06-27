@@ -1,3 +1,169 @@
 ---
+import { Image } from "astro:assets";
 
+const render = {
+  second: [
+    {
+      title: "TOP产品研发实验室",
+      img: "https://build-1305866201.file.myqcloud.com/img/official/introduce-v2.0/mobile/img-011.jpg?imageMogr2/format/webp",
+      text: "HOLAX “未来人才计划”，与全球专业领域科学家合作，携手打造高新科技实验室，用更高标准定义产品！",
+    },
+    {
+      title: "卓越产品团队",
+      img: "https://build-1305866201.file.myqcloud.com/img/official/introduce-v2.0/mobile/img-012.jpg?imageMogr2/format/webp",
+      text: "用数据，为产品说话。从用户需求出发，深度思考产品使用场景，打造与用户习惯更匹配的智能产品。",
+    },
+    {
+      title: "全球原创设计",
+      img: "https://build-1305866201.file.myqcloud.com/img/official/introduce-v2.0/mobile/img-013.jpg?imageMogr2/format/webp",
+      text: "全球化视野，大师级的设计，让新颖的产品创意与独特的设计品味结合得更融洽。",
+    },
+    {
+      title: "知名品牌同源制作商",
+      img: "https://build-1305866201.file.myqcloud.com/img/official/introduce-v2.0/mobile/img-014.jpg?imageMogr2/format/webp",
+      text: "联合知名品牌同源供应链，高品质的材质，精湛的做工，定制出物超所值的产品。",
+    },
+  ],
+  third: [
+    {
+      title: "磕研精神",
+      text: "死磕产品，死磕工厂，死磕技术",
+      text2: "致力把所有不可能都变成了不起",
+      img: "https://build-1305866201.file.myqcloud.com/img/official/introduce-v2.0/mobile/img-021.jpg?imageMogr2/format/webp",
+    },
+    {
+      title: "聆听用户",
+      text: "与千万用户一线沟通",
+      text2: "更深层次了解他们的需求",
+      img: "https://build-1305866201.file.myqcloud.com/img/official/introduce-v2.0/mobile/img-022.jpg?imageMogr2/format/webp",
+    },
+    {
+      title: "打价专家",
+      text: "整合多年累积的供应链、科技链、设计链等资源",
+      text2: "打造兼顾科技和价格的中国智造",
+      img: "https://build-1305866201.file.myqcloud.com/img/official/introduce-v2.0/mobile/img-023.jpg?imageMogr2/format/webp",
+    },
+  ],
+};
+
+const centerClasses =
+  "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2";
 ---
+
+<div class="relative text-white z-[-1]">
+  <Image
+    src="https://build-1305866201.file.myqcloud.com/img/official/introduce-v2.0/mobile/bg-1.jpg?imageMogr2/format/webp"
+    alt="background"
+    inferSize
+  />
+
+  <div
+    class:list={["flex flex-col items-center w-full top-[45%]", centerClasses]}
+  >
+    <h2 class="text-3xl mb-4">科技面前，人人平等</h2>
+    <span>「未来，即现在」，把未来科技照到现实</span>
+    <span> 我们要做的不是探索，而是把科技普及大众 </span>
+  </div>
+</div>
+
+<div class="py-8">
+  <h2 class="text-2xl text-center mb-6">一个以用户为中心的创新平台</h2>
+  <div class="custom-width flex flex-col gap-6">
+    {
+      render.second.map((item) => (
+        <div class="bg-[#f5f5f5]">
+          <Image src={item.img} alt={item.title} inferSize />
+          <div class="px-6 py-4">
+            <h4 class="text-xl mb-2 font-bold">{item.title}</h4>
+            <p class="text-[#333] text-base">{item.text}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<div class="py-8 bg-[#121929] text-white">
+  <h2 class="text-2xl text-center mb-6">每一步都出色，只因我们坚持</h2>
+  <div class="custom-width flex flex-col gap-10">
+    {
+      render.third.map((item) => (
+        <div>
+          <Image src={item.img} alt={item.title} inferSize />
+          <h4 class="text-xl mt-6 mb-2 font-bold">{item.title}</h4>
+          <p class="text-base">{item.text}</p>
+          <p class="text-base">{item.text2}</p>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<div class="relative text-white">
+  <Image
+    src="https://build-1305866201.file.myqcloud.com/img/official/introduce-v2.0/mobile/bg-2.jpg?imageMogr2/format/webp"
+    alt="background"
+    inferSize
+  />
+
+  <div
+    class:list={["flex flex-col items-center w-full top-[28%]", centerClasses]}
+  >
+    <h2 class="text-2xl mb-6">火猩 · 3K计划</h2>
+    <div class="flex items-center gap-4">
+      <div class="flex flex-col items-center">
+        <span class="text-[35px] leading-[35px] mb-3 font-semibold">1000</span>
+        <span class="text-xs">产品经理</span>
+      </div>
+      <div class="text-[19px] font-bold">+</div>
+      <div class="flex flex-col items-center">
+        <span class="text-[35px] leading-[35px] mb-3 font-semibold">1000</span>
+        <span class="text-xs">大牌同源供应链</span>
+      </div>
+      <div class="text-[19px] font-bold">+</div>
+      <div class="flex flex-col items-center">
+        <span class="text-[35px] leading-[35px] mb-3 font-semibold">1000</span>
+        <span class="text-xs">科学家实验室集结</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="relative">
+  <Image
+    src="https://build-1305866201.file.myqcloud.com/img/official/introduce-v2.0/mobile/bg-3.jpg?imageMogr2/format/webp"
+    alt="background"
+    inferSize
+  />
+
+  <div class:list={["flex flex-col items-center w-full", centerClasses]}>
+    <h2 class="text-2xl mb-4">未来猩球用户社区</h2>
+    <span class="text-base font-normal leading-7">
+      「未来，即现在」，把未来科技照到现实
+    </span>
+    <span class="text-base font-normal leading-6">
+      我们要做的不是探索，而是把科技普及大众
+    </span>
+  </div>
+</div>
+
+<div class="relative">
+  <Image
+    src="https://build-1305866201.file.myqcloud.com/img/official/introduce-v2.0/mobile/bg-4.jpg?imageMogr2/format/webp"
+    alt="background"
+    inferSize
+  />
+
+  <div
+    class:list={["flex flex-col items-center w-full top-[30%]", centerClasses]}
+  >
+    <Image
+      class="mb-6"
+      src="https://build-1305866201.file.myqcloud.com/img/official/icon-index-holax.png?imageMogr2/format/webp"
+      alt="logo"
+      width={30}
+      height={30}
+    />
+    <h2 class="text-2xl mb-4 text-white">未来已来，一起奔赴</h2>
+  </div>
+</div>
