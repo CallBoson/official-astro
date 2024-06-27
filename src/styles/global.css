@@ -12,7 +12,7 @@
     rgb(var(--accent-light)) 30%,
     white 60%
   );
-  color: #333;
+  color: #000;
 }
 html {
   font-family: PingFangSC, PingFang SC, -apple-system, BlinkMacSystemFont,

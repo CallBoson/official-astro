@@ -1,0 +1,15 @@
+---
+import MainLayout from "../layouts/Main.astro";
+import Responsive from "../components/Responsive.astro";
+import ContentDesktop from "../components/pages-content/introduce/Dekstop.astro";
+import ContentMobile from "../components/pages-content/introduce/Mobile.astro";
+---
+
+<MainLayout>
+  <main>
+    <Responsive>
+      <ContentDesktop slot="large" />
+      <ContentMobile slot="small" />
+    </Responsive>
+  </main>
+</MainLayout>
