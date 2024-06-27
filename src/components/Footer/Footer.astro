@@ -21,13 +21,15 @@ const footerMenu = createFooterMenu();
 <footer class="bg-[#020024]">
   <div class="custom-width">
     <div class="pt-20 pb-28 flex justify-between text-base">
-      <Image
-        src={logo}
-        alt="Footer logo"
-        width={114}
-        loading="lazy"
-        class="self-start"
-      />
+      <a href="/">
+        <Image
+          src={logo}
+          alt="Footer logo"
+          width={114}
+          loading="lazy"
+          class="self-start"
+        />
+      </a>
       <!-- 全部产品 -->
       <div class="flex flex-col gap-6">
         <span class="text-white mb-4">{footerMenu.products.title}</span>

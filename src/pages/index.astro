@@ -9,26 +9,39 @@ import ContentThirdM from "../components/pages-content/index/ThirdM.astro";
 <MainLayout>
   <main>
     <!-- 首屏图像 -->
-    <Image
-      src="https://build-1305866201.file.myqcloud.com/img/official/hairDryerPro/shouping.png"
-      alt="Hero background"
-      class="h-screen object-cover"
-      inferSize
-    />
+    <picture>
+      <source
+        media="(min-width: 640px)"
+        srcset="https://build-1305866201.file.myqcloud.com/img/official/hairDryerPro/shouping.png?imageMogr2/format/webp"
+      />
+      <Image
+        src="https://build-1305866201.file.myqcloud.com/img/official/hairDryerPro/mobile/1.png?imageMogr2/format/webp"
+        alt="Hero background"
+        class="sm:h-screen w-full object-cover"
+        inferSize
+      />
+    </picture>
 
     <!-- 第二屏 -->
     <div class="relative">
-      <Image
-        src="https://build-1305866201.file.myqcloud.com/img/official/img-index-2.jpg"
-        alt="Second background"
-        class="h-screen object-cover"
-        inferSize={true}
-      />
+      <picture>
+        <source
+          media="(min-width: 640px)"
+          srcset="https://build-1305866201.file.myqcloud.com/img/official/img-index-2.jpg?imageMogr2/format/webp"
+        />
+        <Image
+          src="https://build-1305866201.file.myqcloud.com/img/official/img-index-2-mobile.jpg?imageMogr2/format/webp"
+          alt="Second background"
+          class="sm:h-screen w-full object-cover"
+          inferSize
+        />
+      </picture>
+
       <div
         class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-white text-2xl sm:text-3xl"
       >
         <Image
-          src="https://build-1305866201.file.myqcloud.com/img/official/icon-index-holax.png"
+          src="https://build-1305866201.file.myqcloud.com/img/official/icon-index-holax.png?imageMogr2/format/webp"
           class="sm:w-[60px] w-[33.5px]"
           alt="Second background logo"
           loading="lazy"
