@@ -1,0 +1,57 @@
+---
+import MainLayout from "./Main.astro";
+import HoverButton from "../components/HoverButton.astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<MainLayout title={title}>
+  <main>
+    <slot />
+    <div
+      class="h-[68px] flex justify-center items-center bg-[#010015D9] sticky bottom-0"
+    >
+      <div class="custom-width flex items-center">
+        <a href="/" class="text-white mr-14">概述</a>
+        <HoverButton>
+          <span slot="button-content" class="text-white cursor-default"
+            >一对一客服</span
+          >
+          <div slot="hover-content" class="flex flex-col items-center">
+            <Image
+              src="https://build-1305866201.file.myqcloud.com/img/official/contact-img-3.png?imageMogr2/format/webp"
+              alt="contact image"
+              width={120}
+              inferSize
+              loading="lazy"
+            />
+            <span class="text-xs mt-3">领取 50 元现金券</span>
+          </div>
+        </HoverButton>
+
+        <HoverButton class="ml-auto">
+          <span
+            slot="button-content"
+            class="block w-[116px] h-[44px] leading-[44px] text-center bg-primary text-white cursor-default"
+            >立即探索</span
+          >
+          <div slot="hover-content" class="flex flex-col items-center">
+            <Image
+              src="https://build-1305866201.file.myqcloud.com/img/official/contact-img-4.png?imageMogr2/format/webp"
+              alt="contact image"
+              width={120}
+              inferSize
+              loading="lazy"
+            />
+            <span class="text-xs mt-3">领商城福利</span>
+          </div>
+        </HoverButton>
+      </div>
+    </div>
+  </main>
+</MainLayout>

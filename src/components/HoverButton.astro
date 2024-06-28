@@ -1,11 +1,14 @@
 ---
 interface Props {
   hideOnButtonLeave?: "true" | "false";
+  class?: string;
 }
 const hideOnButtonLeave = Astro.props.hideOnButtonLeave ?? "false";
+
+const { class: buttonClass = "" } = Astro.props;
 ---
 
-<astro-greet data-hideonbuttonleave={hideOnButtonLeave}>
+<astro-greet data-hideonbuttonleave={hideOnButtonLeave} class={buttonClass}>
   <div data-button-content aria-describedby="tooltip">
     <slot name="button-content" />
   </div>
