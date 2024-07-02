@@ -33,7 +33,7 @@ import menu from "../../json/menu.json";
                   <span class="text-xs mb-[18px] text-[#666]">
                     {product.sub}
                   </span>
-                  <div class="overflow-hidden cursor-pointer">
+                  <a class="overflow-hidden cursor-pointer" href={product.url}>
                     <Image
                       src={product.img}
                       alt={product.name}
@@ -41,7 +41,7 @@ import menu from "../../json/menu.json";
                       height={168}
                       class="hover:scale-[1.1] transition duration-500"
                     />
-                  </div>
+                  </a>
                 </div>
               ))
             }

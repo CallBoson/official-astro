@@ -1,0 +1,216 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "../layouts/Main.astro";
+---
+
+<MainLayout>
+  <main class="bg-[#f5f5f5]">
+    <div class="relative">
+      <Image
+        src="https://build-1305866201.file.myqcloud.com/img/official/img-joinus-1.jpg?imageMogr2/format/webp"
+        alt="Hero background"
+        class="md:w-full md:h-auto h-[400px] object-cover"
+        inferSize
+      />
+      <div
+        class="text-white absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2"
+      >
+        <h1 class="text-center md:text-6xl text-[40px] mb-1 md:mb-6">
+          招贤纳士
+        </h1>
+        <p class="text-lg md:text-2xl">「 HOLAX等你加入 」</p>
+      </div>
+    </div>
+
+    <div class="px-5 max-w-[1064px] mx-auto md:py-28 py-12">
+      <h2 class="md:text-center text-left md:text-[45px] text-[28px] mb-3">
+        关于HOLAX
+      </h2>
+      <div
+        class="text-[#666] md:text-center text-left md:text-lg texct-[13px] flex flex-col gap-1"
+      >
+        <p>火猩未来是一个以用户为中心的创新平台</p>
+        <p>旗下拥有foly等创新品牌，汇集全球顶尖的产品设计师、工业设计团队</p>
+        <p>联合强大的供应链体系，业务辐射3T板块。</p>
+      </div>
+
+      <div class="mt-5 flex flex-col md:flex-row gap-4">
+        <div
+          class="bg-white flex flex-col items-center py-5 md:py-20 flex-1 rounded-lg md:rounded-none"
+        >
+          <Image
+            src="https://build-1305866201.file.myqcloud.com/img/official/icon-joinus-1.png?imageMogr2/format/webp"
+            alt="Icon"
+            class="w-[8rem]"
+            inferSize
+          />
+          <p class="text-2xl md:text-3xl mb-1">TREND</p>
+          <p class="text-2xl md:text-3xl mb-4">趋势</p>
+          <span class="text-[#666] text-[15px] md:text-lg"
+            >以用户需求为中心</span
+          >
+          <span class="text-[#666] text-[15px] md:text-lg">为服务提供根基</span>
+        </div>
+
+        <div
+          class="bg-white flex flex-col items-center py-5 md:py-20 flex-1 rounded-lg md:rounded-none"
+        >
+          <Image
+            src="https://build-1305866201.file.myqcloud.com/img/official/icon-joinus-2.png?imageMogr2/format/webp"
+            alt="Icon"
+            class="w-[8rem]"
+            inferSize
+          />
+          <p class="text-2xl md:text-3xl mb-1">TECH</p>
+          <p class="text-2xl md:text-3xl mb-4">科技</p>
+          <span class="text-[#666] text-[15px] md:text-lg">以科技为支撑</span>
+          <span class="text-[#666] text-[15px] md:text-lg px-4"
+            >为用户打造更理想的生活空间</span
+          >
+        </div>
+
+        <div
+          class="bg-white flex flex-col items-center py-5 md:py-20 flex-1 rounded-lg md:rounded-none"
+        >
+          <Image
+            src="https://build-1305866201.file.myqcloud.com/img/official/icon-joinus-3.png?imageMogr2/format/webp"
+            alt="Icon"
+            class="w-[8rem]"
+            inferSize
+          />
+          <p class="text-2xl md:text-3xl mb-1">TRADE</p>
+          <p class="text-2xl md:text-3xl mb-4">销售</p>
+          <span class="text-[#666] text-[15px] md:text-lg px-4"
+            >以销售为目的，依靠千万社区</span
+          >
+          <span class="text-[#666] text-[15px] md:text-lg px-4">
+            和亿级直播流量全渠道爆发</span
+          >
+        </div>
+      </div>
+
+      <h2
+        class="md:text-center text-left md:text-[45px] text-[28px] mb-3 md:pt-28 pt-12"
+      >
+        公司福利
+      </h2>
+      <div
+        class="text-[#666] md:text-center text-left md:text-lg texct-[13px] flex flex-col gap-1"
+      >
+        <p>从衣食住行到个人成长，点滴关怀培育热爱的土壤；</p>
+        <p>感受极具设计感的多元环境，从一方天地出发，让想象无限延长。</p>
+      </div>
+
+      <div class="mt-5">
+        <div
+          class="flex flex-col-reverse md:grid grid-cols-2 rounded-lg md:rounded-none overflow-hidden mb-5 md:mb-8"
+        >
+          <div
+            class="flex-1 bg-white flex flex-col justify-center p-6 md:p-10 box-border"
+          >
+            <h3 class="text-2xl md:text-[28px]">丰厚的员工福利</h3>
+            <div class="w-[32px] bg-black h-[2px] my-4"></div>
+            <p class="text-[#666] md:text-lg text-base">
+              入职即买五险一金(全额度)，每周两次下午茶，吃不完的零食礼包，还有丰厚的年终奖。入职礼包，节假日惊喜不断。
+            </p>
+          </div>
+          <div class="flex-1 md:h-auto h-[180px]">
+            <Image
+              class="h-full object-cover"
+              src="https://build-1305866201.file.myqcloud.com/img/official/img-joinus-2.jpg?imageMogr2/format/webp"
+              alt="Official image"
+              inferSize
+            />
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col md:grid grid-cols-2 rounded-lg md:rounded-none overflow-hidden"
+        >
+          <div class="flex-1 md:h-auto h-[180px]">
+            <Image
+              class="h-full object-cover"
+              src="https://build-1305866201.file.myqcloud.com/img/official/img-joinus-3.jpg?imageMogr2/format/webp"
+              alt="Official image"
+              inferSize
+            />
+          </div>
+          <div class="flex-1 bg-white flex flex-col justify-center p-6 md:p-10">
+            <h3 class="text-2xl md:text-[28px]">优美的办公环境</h3>
+            <div class="w-[32px] bg-black h-[2px] my-4"></div>
+            <p class="text-[#666] md:text-lg text-base">
+              坐落番禺CBD，地铁上盖的甲级写字楼，来感受落地玻璃窗、宽敞的午间休息区工作体验！
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h2
+        class="md:text-center text-left md:text-[45px] text-[28px] mb-3 md:pt-28 pt-12"
+      >
+        热招岗位
+      </h2>
+
+      <div
+        class="bg-white p-10 flex flex-col items-center rounded-lg md:rounded-none *:text-center"
+      >
+        <h3 class="text-2xl md:text-[28px]">
+          在工作中收获成长和快乐，成为更好的我们
+        </h3>
+
+        <p class="text-[#666] md:text-lg text-base mt-3 mb-8">
+          成就志同道合的伙伴，是火猩未来创造更多美好的动力之一
+        </p>
+
+        <a
+          href="/job"
+          class="w-[174px] h-10 leading-10 border border-[#333] text-[#333] hover:text-white hover:bg-[#333] transition-all md:rounded-none rounded-3xl"
+        >
+          查看在招岗位
+        </a>
+      </div>
+
+      <h2
+        class="md:text-center text-left md:text-[45px] text-[28px] mb-3 md:pt-28 pt-12"
+      >
+        联系方式
+      </h2>
+
+      <div
+        class="flex flex-col *:flex-1 md:flex-row flex-1 md:gap-3 rounded-lg md:rounded-none overflow-hidden"
+      >
+        {
+          [
+            {
+              title: "招聘专场",
+              text: "人才招聘的一切信息，这里都有。加入我们吧",
+              img: "https://build-1305866201.file.myqcloud.com/img/official/icon-joinus-5.png",
+            },
+            {
+              title: "简历投递",
+              text: "zhaopin@holax.com",
+              img: "https://build-1305866201.file.myqcloud.com/img/official/icon-joinus-4.png",
+            },
+            {
+              title: "公司地址",
+              text: "广州市番禺区南村镇汉溪大道362号粤海广场写字楼38楼3801、3804、3805、3806、3807房",
+              img: "https://build-1305866201.file.myqcloud.com/img/official/icon-joinus-6.png",
+            },
+          ].map((item) => (
+            <div class="flex md:flex-col items-center flex-row bg-white py-5 px-5 md:py-12 md:px-7 gap-6 md:gap-9 md:border-b-0 border-b-2 border-b-[#f5f5f5]">
+              <div class="flex-shrink-0 w-[51px] md:w-[63px]">
+                <Image src={item.img} alt="contact icon" inferSize />
+              </div>
+              <div>
+                <h3 class="md:text-center text-[#333] text-lg font-bold mb-2">
+                  {item.title}
+                </h3>
+                <p class="text-[#666] text-xs">{item.text}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</MainLayout>

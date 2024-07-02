@@ -35,7 +35,7 @@ const menuItemClasses =
     class="group custom-width absolute top-0 h-full flex items-center justify-between"
   >
     <input class="hidden peer" type="checkbox" id="dropdown-toggle-nav-menu" />
-    <label for="dropdown-toggle-nav-menu" class="z-10">
+    <label for="dropdown-toggle-nav-menu" class="z-20">
       <img
         src={toggleOpen.src}
         alt="toggle icon"
@@ -51,9 +51,9 @@ const menuItemClasses =
       />
     </label>
 
-    <a href="/" class="z-10"> <img src={logo.src} alt="logo" width={120} /></a>
+    <a href="/" class="z-20"> <img src={logo.src} alt="logo" width={120} /></a>
 
-    <MaskButton buttonClass="z-10">
+    <MaskButton buttonClass="z-20">
       <Image
         src="https://build-1305866201.file.myqcloud.com/img/official/icon-shop.png"
         alt="icon shop"
@@ -77,7 +77,7 @@ const menuItemClasses =
     <!-- 下拉菜单 -->
     <div
       class:list={[
-        "absolute left-0 top-0 w-full bg-[rgba(2,0,36,.9)] z-0",
+        "absolute left-0 top-0 w-full bg-[rgba(2,0,36,.9)] z-10",
         "grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] overflow-hidden transition-all duration-700",
       ]}
     >
