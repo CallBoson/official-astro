@@ -5,10 +5,15 @@ import logo from "../../images/nav/logo-pc.webp";
 import logoActive from "../../images/nav/logo-active-pc.webp";
 import products from "../../json/products.json";
 import menu from "../../json/menu.json";
+
+const { isNavDark = false } = Astro.props;
 ---
 
 <nav
-  class="group hover:bg-white absolute top-0 w-full h-[70px] z-[99] transition-all duration-500 flex"
+  class:list={[
+    "group hover:bg-white absolute top-0 w-full h-[70px] z-[99] transition-all duration-500 flex",
+    isNavDark && "bg-[#000]",
+  ]}
 >
   <div class="custom-width flex items-center justify-between">
     <!-- Logo 部分 -->

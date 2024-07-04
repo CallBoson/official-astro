@@ -8,15 +8,16 @@ import Responsive from "../components/Responsive.astro";
 
 interface Props {
   title?: string;
+  isNavDark?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, isNavDark } = Astro.props;
 ---
 
 <Layout title={title}>
   <Responsive>
-    <Nav slot="large" />
-    <NavMobile slot="small" />
+    <Nav slot="large" isNavDark={isNavDark} />
+    <NavMobile slot="small" isNavDark={isNavDark} />
   </Responsive>
 
   <slot />

@@ -1,0 +1,80 @@
+---
+import { generateGetUrl } from "../../utils/sign";
+import MainLayout from "../../layouts/Main.astro";
+
+export async function getStaticPaths() {
+  // 职位类型列表
+  const response = await fetch(
+    generateGetUrl("https://www.holax.com/recruit_job_type/all"),
+    {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    }
+  );
+
+  const { data } = await response.json();
+  const list = data.data;
+  list.unshift({ id: undefined, name: "全部" });
+
+  return list.map((item) => {
+    return { params: { id: item.id }, props: { list } };
+  });
+}
+
+const { id } = Astro.params;
+
+const { list } = Astro.props;
+
+// 职位列表
+const response = await fetch(
+  generateGetUrl(
+    "https://www.holax.com/recruit/list?page=1&per_page=50&job_type_id=" +
+      (id || "")
+  ),
+  {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  }
+);
+
+const { data } = await response.json();
+
+const jobList = data.data;
+---
+
+<MainLayout isNavDark>
+  <div class="custom-width mt-[110px] mb-10 flex flex-col gap-5">
+    <a href="../" class="text-lg text-[#666] hover:text-primary">返回</a>
+    <div class="bg-white flex flex-wrap gap-4 p-5">
+      {
+        list.map((item) => (
+          <a
+            href={`./${item.id || ""}`}
+            class:list={[
+              "p-3 border border-[#d8d8d8] text-[#666] rounded-md text-sm text-center min-w-20 hover:border-primary hover:text-primary",
+              id == item.id &&
+                "border-primary text-white bg-primary hover:text-white",
+            ]}
+          >
+            {item.name}
+          </a>
+        ))
+      }
+    </div>
+
+    {
+      jobList.map((item) => (
+        <a href={`./detail/${item.id}`} class="bg-white p-5 rounded-md">
+          <h4 class="text-base font-bold mb-3">{item.job}</h4>
+          <p class="text-[#666] text-sm">{item.salary}</p>
+        </a>
+      ))
+    }
+  </div>
+</MainLayout>
+
+<style>
+  body {
+    background-color: #f5f5f5;
+  }
+</style>

@@ -7,6 +7,8 @@ import menu from "../../../json/menu.json";
 import products from "../../../json/products.json";
 import MaskButton from "../../MaskButton.astro";
 
+const { isNavDark = false } = Astro.props;
+
 const renderMenu = {
   introduce: {
     title: menu.about.items.introduce.title,
@@ -30,7 +32,7 @@ const menuItemClasses =
   "text-white custom-width py-6 text-sm border-b border-b-[rgba(255,255,255,.2)]";
 ---
 
-<nav class="absolute top-0 w-full h-[70px]">
+<nav class:list={["absolute top-0 w-full h-[70px]", isNavDark && "bg-[#000]"]}>
   <div
     class="group custom-width absolute top-0 h-full flex items-center justify-between"
   >
