@@ -39,6 +39,8 @@ const response = await fetch(
 
 const { data } = await response.json();
 
+console.log(data);
+
 const jobList = data.data;
 ---
 
@@ -49,7 +51,7 @@ const jobList = data.data;
       {
         list.map((item) => (
           <a
-            href={`./${item.id || ""}`}
+            href={`/job/${item.id || ""}`}
             class:list={[
               "p-3 border border-[#d8d8d8] text-[#666] rounded-md text-sm text-center min-w-20 hover:border-primary hover:text-primary",
               id == item.id &&
@@ -64,7 +66,7 @@ const jobList = data.data;
 
     {
       jobList.map((item) => (
-        <a href={`./detail/${item.id}`} class="bg-white p-5 rounded-md">
+        <a href={`/job/detail/${item.id}`} class="bg-white p-5 rounded-md">
           <h4 class="text-base font-bold mb-3">{item.job}</h4>
           <p class="text-[#666] text-sm">{item.salary}</p>
         </a>

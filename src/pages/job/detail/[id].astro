@@ -1,0 +1,90 @@
+---
+import { generateGetUrl } from "../../../utils/sign";
+import MainLayout from "../../../layouts/Main.astro";
+
+export async function getStaticPaths() {
+  // 预获取全部的职位
+  const response = await fetch(
+    generateGetUrl("https://www.holax.com/recruit/list?page=1&per_page=50"),
+    {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    }
+  );
+
+  const { data } = await response.json();
+  const list = data.data;
+
+  return list.map((item) => {
+    return { params: { id: item.id } };
+  });
+}
+
+const { id } = Astro.params;
+
+// 职位详情
+const response = await fetch(
+  generateGetUrl("https://www.holax.com/recruit/detail?id=" + id),
+  {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  }
+);
+
+const { data } = await response.json();
+
+const jobDetail = data;
+---
+
+<MainLayout isNavDark>
+  <div class="custom-width mt-[110px] mb-10 flex flex-col gap-5">
+    <a href="../" class="text-lg text-[#666] hover:text-primary">返回</a>
+    <div class="bg-white p-5">
+      <h4 class="text-xl font-bold mb-3">{jobDetail.job}</h4>
+      <p class="text-[#666] text-sm">{jobDetail.salary}</p>
+
+      <div class="mt-10">
+        <h5
+          class="flex items-center before:block before:w-1 before:h-4 before:bg-primary text-lg font-bold mb-3 before:mr-2"
+        >
+          岗位职责
+        </h5>
+        <p class="text-[#666] text-sm mt-3 whitespace-pre-wrap leading-7">
+          {jobDetail.job_duty}
+        </p>
+      </div>
+
+      <div class="mt-10">
+        <h5
+          class="flex items-center before:block before:w-1 before:h-4 before:bg-primary text-lg font-bold mb-3 before:mr-2"
+        >
+          职位要求
+        </h5>
+        <p class="text-[#666] text-sm mt-3 whitespace-pre-wrap leading-7">
+          {jobDetail.job_requirement}
+        </p>
+      </div>
+
+      <p class="mt-5 mb-10 text-[#0c20cd] font-bold">
+        简历投递：{jobDetail.sent_email}
+      </p>
+
+      <button id="copyEmail">复制邮箱投递地址</button>
+    </div>
+  </div>
+</MainLayout>
+
+<script>
+  const copyEmail = document.querySelector("#copyEmail");
+
+  copyEmail.addEventListener("click", () => {
+    const email = "zhaopin@holax.com";
+    navigator.clipboard.writeText(email);
+  });
+</script>
+
+<style>
+  body {
+    background-color: #f5f5f5;
+  }
+</style>
