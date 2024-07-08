@@ -6,16 +6,7 @@ import menu from "../../json/menu.json";
 import products from "../../json/products.json";
 import HoverButton from "../HoverButton.astro";
 
-function createFooterMenu() {
-  const newMenu = JSON.parse(JSON.stringify(menu));
-
-  // 联系 HOLAX 修改热线电话标题
-  newMenu.contact.items.calls.title = "热线电话";
-
-  return newMenu;
-}
-
-const footerMenu = createFooterMenu();
+const footerMenu = menu;
 ---
 
 <footer class="bg-[#020024]">
@@ -65,16 +56,30 @@ const footerMenu = createFooterMenu();
                 slot="button-content"
                 class="text-[hsla(0,0%,100%,.5)] hover:text-white"
               >
-                {v.title}
+                {k === "calls" ? "热线电话" : v.title}
               </a>
               <div slot="hover-content">
-                <Image
-                  src={v.img}
-                  alt={v.title}
-                  width={130}
-                  inferSize
-                  loading="lazy"
-                />
+                {k === "calls" ? (
+                  <div class="flex flex-col items-center">
+                    <Image
+                      src={v.img}
+                      alt={v.title}
+                      width={90}
+                      inferSize
+                      loading="lazy"
+                    />
+                    <p class="text-xs">{v.title}</p>
+                    <p class="text-xs">{v.sub}</p>
+                  </div>
+                ) : (
+                  <Image
+                    src={v.img}
+                    alt={v.title}
+                    width={130}
+                    inferSize
+                    loading="lazy"
+                  />
+                )}
               </div>
             </HoverButton>
           ))
