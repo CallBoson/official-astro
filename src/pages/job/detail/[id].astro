@@ -1,6 +1,7 @@
 ---
 import { generateGetUrl } from "../../../utils/sign";
 import MainLayout from "../../../layouts/Main.astro";
+import { toast } from "../../../components/Toast.js";
 
 export async function getStaticPaths() {
   // 预获取全部的职位
@@ -75,11 +76,14 @@ const jobDetail = data;
 </MainLayout>
 
 <script>
+  import { toast } from "../../../utils/toast.js";
   const copyEmail = document.querySelector("#copyEmail");
 
-  copyEmail.addEventListener("click", () => {
+  copyEmail.addEventListener("click", async () => {
     const email = "zhaopin@holax.com";
-    navigator.clipboard.writeText(email);
+    await navigator.clipboard.writeText(email);
+
+    toast("复制成功");
   });
 </script>
 
