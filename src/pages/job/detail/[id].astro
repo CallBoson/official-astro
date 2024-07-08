@@ -3,7 +3,7 @@ import { generateGetUrl } from "../../../utils/sign";
 import MainLayout from "../../../layouts/Main.astro";
 
 export async function getStaticPaths() {
-  // 预获取全部的职位
+  // 预获取全部的职位，此处注意：没有做分页
   const response = await fetch(
     generateGetUrl("https://www.holax.com/recruit/list?page=1&per_page=50"),
     {
@@ -84,6 +84,8 @@ const jobDetail = data;
 
   copyEmail.addEventListener("click", async () => {
     const email = "zhaopin@holax.com";
+
+    // 移动端多数不支持 clipboard API，这里做兼容
     if (
       navigator.clipboard &&
       typeof navigator.clipboard.writeText === "function"

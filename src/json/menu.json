@@ -21,22 +21,22 @@
       "officialAccount": {
         "title": "HOLAX公众号",
         "sub": "获取每日最新优惠",
-        "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-1.png"
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-1.png?imageMogr2/format/webp"
       },
       "consult": {
         "title": "1对1咨询",
         "sub": "可领50元现金券",
-        "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-3.png"
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-3.png?imageMogr2/format/webp"
       },
       "miniprogram": {
         "title": "HOLAX小程序",
         "sub": "一键解锁商城福利",
-        "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-4.png"
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-4.png?imageMogr2/format/webp"
       },
       "calls": {
         "title": "热线电话：4000-688-666",
         "sub": "周一至周日：9:00-21:00（北京时间）",
-        "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-5.png"
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-5.png?imageMogr2/format/webp"
       }
     }
   },
@@ -45,15 +45,15 @@
     "items": {
       "factory": {
         "title": "厂家合作",
-        "img": "https://build-1305866201.file.myqcloud.com/img/official/cooperation-code-1.png"
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/cooperation-code-1.png?imageMogr2/format/webp"
       },
       "agency": {
         "title": "代理合作",
-        "img": "https://build-1305866201.file.myqcloud.com/img/official/cooperation-code-2.png"
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/cooperation-code-2.png?imageMogr2/format/webp"
       },
       "integritySupervision": {
         "title": "廉洁监督",
-        "img": "https://build-1305866201.file.myqcloud.com/img/official/cooperation-code-3.jpg"
+        "img": "https://build-1305866201.file.myqcloud.com/img/official/cooperation-code-3.jpg?imageMogr2/format/webp"
       }
     }
   },
@@ -70,7 +70,7 @@
     "title": "立即探索",
     "item": {
       "title": "领商城福利",
-      "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-4.png"
+      "img": "https://build-1305866201.file.myqcloud.com/img/official/contact-img-4.png?imageMogr2/format/webp"
     }
   }
 }
