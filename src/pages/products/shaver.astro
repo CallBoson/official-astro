@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import ProductLayout from "../../layouts/Product.astro";
+
+const images = [
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/1_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/2_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/3_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/4_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/5_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/6_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/7_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/8_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/9_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/10_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/11_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/12_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/13_1107.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/shaver/pc/14_1107.jpg",
+];
+---
+
+<ProductLayout>
+  {
+    images.map((image) => (
+      <Image
+        src={`${image}?imageMogr2/format/webp`}
+        alt="product background image"
+        inferSize
+        class="w-full object-cover"
+      />
+    ))
+  }
+</ProductLayout>
