@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import ProductLayout from "../../layouts/Product.astro";
+
+const images = [
+  "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/pc/1.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/pc/2.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/pc/3.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/pc/4-230520.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/pc/5-230520.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/pc/6.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/pc/7.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/pc/8.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/pc/9.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/pc/10.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/pc/11.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/pc/12-230520.jpg",
+];
+---
+
+<ProductLayout>
+  {
+    images.map((image) => (
+      <Image
+        src={`${image}?imageMogr2/format/webp`}
+        alt="product background image"
+        inferSize
+        class="w-full object-cover"
+      />
+    ))
+  }
+</ProductLayout>
