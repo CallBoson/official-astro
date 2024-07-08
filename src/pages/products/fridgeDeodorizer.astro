@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+import ProductLayout from "../../layouts/Product.astro";
+
+const images = [
+  "https://build-1305866201.file.myqcloud.com/img/official/fridgeDeodorizer/pc/1.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/fridgeDeodorizer/pc/2.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/fridgeDeodorizer/pc/3.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/fridgeDeodorizer/pc/4.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/fridgeDeodorizer/pc/5.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/fridgeDeodorizer/pc/6.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/fridgeDeodorizer/pc/7.jpg",
+  "https://build-1305866201.file.myqcloud.com/img/official/fridgeDeodorizer/pc/8.jpg",
+];
+---
+
+<ProductLayout>
+  {
+    images.map((image) => (
+      <Image
+        src={`${image}?imageMogr2/format/webp`}
+        alt="product background image"
+        inferSize
+        class="w-full object-cover"
+      />
+    ))
+  }
+</ProductLayout>
