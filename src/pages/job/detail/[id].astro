@@ -1,7 +1,6 @@
 ---
 import { generateGetUrl } from "../../../utils/sign";
 import MainLayout from "../../../layouts/Main.astro";
-import { toast } from "../../../components/Toast.js";
 
 export async function getStaticPaths() {
   // 预获取全部的职位
@@ -70,7 +69,11 @@ const jobDetail = data;
         简历投递：{jobDetail.sent_email}
       </p>
 
-      <button id="copyEmail">复制邮箱投递地址</button>
+      <button
+        id="copyEmail"
+        class="bg-primary text-white text-sm rounded px-4 py-2"
+        >复制邮箱投递地址</button
+      >
     </div>
   </div>
 </MainLayout>
@@ -81,9 +84,21 @@ const jobDetail = data;
 
   copyEmail.addEventListener("click", async () => {
     const email = "zhaopin@holax.com";
-    await navigator.clipboard.writeText(email);
+    if (
+      navigator.clipboard &&
+      typeof navigator.clipboard.writeText === "function"
+    ) {
+      navigator.clipboard.writeText(email);
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = email;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
 
-    toast("复制成功");
+    toast("复制成功，赶紧去投递吧~");
   });
 </script>
 
