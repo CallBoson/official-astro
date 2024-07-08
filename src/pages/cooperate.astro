@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "../layouts/Main.astro";
+import menu from "../json/menu.json";
+
+const menuItem = menu.cooperation.items;
+---
+
+<MainLayout isNavDark>
+  <div class="custom-width flex flex-col mt-[110px] mb-10 gap-4">
+    <div
+      class="flex items-center justify-between bg-white p-6 bg-cover"
+      style="background-image: url(https://build-1305866201.file.myqcloud.com/img/official/contact-us-mobile-bg-5.png?imageMogr2/format/webp);"
+    >
+      <h4 class="font-bold text-sm">
+        {menuItem.factory.title}
+      </h4>
+      <Image
+        src={menuItem.factory.img}
+        alt={menuItem.factory.title}
+        width={80}
+        inferSize
+      />
+    </div>
+
+    <div
+      class="flex items-center justify-between bg-white p-6 bg-cover"
+      style="background-image: url(https://build-1305866201.file.myqcloud.com/img/official/contact-us-mobile-bg-5.png?imageMogr2/format/webp);"
+    >
+      <h4 class="font-bold text-sm">
+        {menuItem.agency.title}
+      </h4>
+      <Image
+        src={menuItem.agency.img}
+        alt={menuItem.agency.title}
+        width={80}
+        inferSize
+      />
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  body {
+    background-color: #f5f5f5;
+  }
+</style>

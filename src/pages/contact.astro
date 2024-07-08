@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "../layouts/Main.astro";
+import menu from "../json/menu.json";
+
+const menuItem = menu.contact.items;
+---
+
+<MainLayout isNavDark>
+  <div class="custom-width flex flex-col mt-[110px] mb-10 gap-4">
+    <div
+      class="flex items-center justify-between bg-white p-6 bg-cover"
+      style="background-image: url(https://build-1305866201.file.myqcloud.com/img/official/contact-us-mobile-bg-1.png?imageMogr2/format/webp);"
+    >
+      <div>
+        <h4 class="font-bold mb-2 text-sm">
+          {menuItem.officialAccount.title}
+        </h4>
+        <p class="text-xs text-[#666]">{menuItem.officialAccount.sub}</p>
+      </div>
+      <Image
+        src={menuItem.officialAccount.img}
+        alt={menuItem.officialAccount.title}
+        width={80}
+        inferSize
+      />
+    </div>
+
+    <div
+      class="flex items-center justify-between bg-white p-6 bg-cover"
+      style="background-image: url(https://build-1305866201.file.myqcloud.com/img/official/contact-us-mobile-bg-2.png?imageMogr2/format/webp);"
+    >
+      <div>
+        <h4 class="font-bold mb-2 text-sm">
+          {menuItem.consult.title}
+        </h4>
+        <p class="text-xs text-[#666]">{menuItem.consult.sub}</p>
+      </div>
+      <Image
+        src={menuItem.consult.img}
+        alt={menuItem.consult.title}
+        width={80}
+        inferSize
+      />
+    </div>
+
+    <div
+      class="flex items-center justify-between bg-white p-6 bg-cover"
+      style="background-image: url(https://build-1305866201.file.myqcloud.com/img/official/contact-us-mobile-bg-3.png?imageMogr2/format/webp);"
+    >
+      <div>
+        <h4 class="font-bold mb-2 text-sm">
+          {menuItem.miniprogram.title}
+        </h4>
+        <p class="text-xs text-[#666]">{menuItem.miniprogram.sub}</p>
+      </div>
+      <Image
+        src={menuItem.miniprogram.img}
+        alt={menuItem.miniprogram.title}
+        width={80}
+        inferSize
+      />
+    </div>
+
+    <a
+      href="tel:4000-688-666"
+      class="flex items-center justify-between bg-white p-6 bg-cover"
+      style="background-image: url(https://build-1305866201.file.myqcloud.com/img/official/contact-us-mobile-bg-4.png?imageMogr2/format/webp);"
+    >
+      <div>
+        <h4 class="font-bold mb-2 text-sm">
+          {menuItem.calls.title}
+        </h4>
+        <p class="text-xs text-[#666]">{menuItem.calls.sub}</p>
+      </div>
+      <Image
+        src={menuItem.calls.img}
+        alt={menuItem.calls.title}
+        width={80}
+        inferSize
+      />
+    </a>
+  </div>
+</MainLayout>
+
+<style>
+  body {
+    background-color: #f5f5f5;
+  }
+</style>
