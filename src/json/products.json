@@ -6,12 +6,6 @@
     "url": "/products/hairDryerPro"
   },
   {
-    "name": "高速吹风机",
-    "sub": "澎湃动力 高速快干",
-    "img": "https://build-1305866201.file.myqcloud.com/img/official/nav-prods-1.jpg",
-    "url": "/products/hairDryer"
-  },
-  {
     "name": "男士剃须套装",
     "sub": "3D灵动 超长续航",
     "img": "https://build-1305866201.file.myqcloud.com/img/official/shaver/tab-img.jpg",
@@ -28,11 +22,5 @@
     "sub": "7层过滤 只喝优质水",
     "img": "https://build-1305866201.file.myqcloud.com/img/official/waterPurifier/tab-img-230520.jpeg",
     "url": "/products/waterPurifier"
-  },
-  {
-    "name": "鱼子酱精华圈",
-    "sub": "深海力量 强韧秀发",
-    "img": "https://build-1305866201.file.myqcloud.com/img/official/nav-prods-2.jpg",
-    "url": "/products/hairSerum"
   }
 ]
