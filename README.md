@@ -1,6 +1,8 @@
 # 基于 ASTRO 的企业官网模板
 > 该项目基于某公司定制，职位接口、图片资源皆为线上资源，若您需要使用，请按自身需要修改。
 
+> 此外还有一个基于Nuxt3的全屏滚动企业官网，感兴趣可以到 [https://github.com/CallBoson/official-nuxt3](https://github.com/CallBoson/official-nuxt3)
+
 此项目基于某公司官网，使用 Astro 进行为期两周的重构，并进行了一些优化。
 
 模板含企业产品展示、企业介绍、招聘等页面，并且分移动端和 PC 端，响应式设计友好。
